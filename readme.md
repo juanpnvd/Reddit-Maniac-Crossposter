@@ -1,5 +1,7 @@
 ## Reddit Maniac Crossposter
 
+![](ss.jpg)
+
 Reposts or crossposts new submissions from chosen subreddits every N seconds.
 
 ### Instructions
