@@ -65,8 +65,8 @@ def main():
     write_subreddits = [x.strip() for x in config['SETTINGS']['write_subreddits'].split(',')]
     send_replies = config['SETTINGS'].getboolean('send_replies')
     crosspost = config['SETTINGS'].getboolean('crosspost')
-    min_sleep = config['SETTINGS']['min_sleep']
-    max_sleep =config['SETTINGS']['max_sleep']
+    min_sleep = int(config['SETTINGS']['min_sleep'])
+    max_sleep = int(config['SETTINGS']['max_sleep'])
     test_mode = config['SETTINGS'].getboolean('test_mode')
     reddit = praw.Reddit(
         username=config['REDDIT']['reddit_user'],
