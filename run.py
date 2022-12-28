@@ -5,6 +5,7 @@ import configparser
 import pickledb
 from requests import get
 from requests.exceptions import ConnectionError
+from time import sleep
 
 
 def wait_until_online(timeout, slumber):
