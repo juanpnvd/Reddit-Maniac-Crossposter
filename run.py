@@ -53,7 +53,7 @@ def sniper(reddit, read_subreddits, write_subreddits, send_replies, crosspost, t
                                 reddit.subreddit(write_subreddit).submit(title, selftext=selftext, send_replies=send_replies)
 
                         print(f'r/{read_subreddit} → r/{write_subreddit} - {title[0:80]}')
-                        time.sleep(2)
+                        time.sleep(900)
                     break
 
 
