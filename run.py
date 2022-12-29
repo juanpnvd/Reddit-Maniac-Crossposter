@@ -6,6 +6,7 @@ import pickledb
 from requests import get
 from requests.exceptions import ConnectionError
 from time import sleep
+import os
 
 
 def wait_until_online(timeout, slumber):
@@ -62,19 +63,19 @@ def main():
     db = pickledb.load('history.db', False)
     config = configparser.ConfigParser()
     config.read('conf.ini')
-    read_subreddits = [x.strip() for x in config['SETTINGS']['read_subreddits'].split(',')]
-    write_subreddits = [x.strip() for x in config['SETTINGS']['write_subreddits'].split(',')]
+    read_subreddits = [x.strip() for x in os.environ['read_subreddits'].split(',')]
+    write_subreddits = [x.strip() for x in os.environ['read_subreddits'].split(',')]
     send_replies = config['SETTINGS'].getboolean('send_replies')
     crosspost = config['SETTINGS'].getboolean('crosspost')
     min_sleep = int(config['SETTINGS']['min_sleep'])
     max_sleep = int(config['SETTINGS']['max_sleep'])
     test_mode = config['SETTINGS'].getboolean('test_mode')
     reddit = praw.Reddit(
-        username=config['REDDIT']['reddit_user'],
-        password=config['REDDIT']['reddit_pass'],
-        client_id=config['REDDIT']['reddit_client_id'],
-        client_secret=config['REDDIT']['reddit_client_secret'],
-        user_agent='Crossposter (by u/impshum)'
+        username=os.environ['username'],
+        password=os.environ['password'],
+        client_id=os.environ['client_id'],
+        client_secret=os.environ['client_secret'],
+        user_agent=os.environ['user_agent']
     )
 
     if test_mode:
