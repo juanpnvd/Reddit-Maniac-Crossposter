@@ -7,7 +7,6 @@ from requests import get
 from requests.exceptions import ConnectionError
 from time import sleep
 import os
-import sleep
 
 
 def wait_until_online(timeout, slumber):
