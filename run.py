@@ -64,7 +64,7 @@ def main():
     config = configparser.ConfigParser()
     config.read('conf.ini')
     read_subreddits = [x.strip() for x in os.environ['read_subreddits'].split(',')]
-    write_subreddits = [i.split('.') for i in os.environ.get("write_subreddits").split(' ')] 
+    write_subreddits = [i.split(' ') for i in os.environ.get('write_subreddits').split(' ')] 
     send_replies = config['SETTINGS'].getboolean('send_replies')
     crosspost = config['SETTINGS'].getboolean('crosspost')
     min_sleep = int(config['SETTINGS']['min_sleep'])
